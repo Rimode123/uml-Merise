@@ -14,10 +14,15 @@
 
 1. [1.La conception](#con)
 2. [2.Contexte du projet ](#pro)
-3. [3.Élaborer un MCD.](#liv) 
-4. [4.Élaborer un MLD.](#liv) 
-5. [5.Élaborer un MPD.](#liv) 	
-
+3. [3.Élaborer un MCD.](#merise) 
+4. [4.Élaborer un MLD.](#merise) 
+5. [5.Élaborer un MPD.](#merise) 	
+6. [6.Analyse Pour l'application UML.](#uml) 	
+7. [7.Un dictionnaire de données](#uml) 	
+8. [8.Des règles de gestion](uml)
+9. [9. Un diagramme de cas d'utilisation](#uml)
+10.[10.Un diagramme de classe](#uml)
+11.[11.Un diagramme de Séquence](#uml)
 
 
 ### Semaine du 05/12
@@ -47,7 +52,7 @@ La plateforme devra permettre que :
     Chaque aéroport dessert une ou plusieurs villes.
     Des compagnies aériennes proposent différents vols.
     
-##Livrable <a name="liv"></a>
+## Partie Merise <a name="merise"></a>
 Pour la base de données :
 # Conceptuel 
 * Un MCD : Modéle conceptuel des données
@@ -125,10 +130,49 @@ la table passager(N°passport : c'est la clé primaire ,nom passager, prenom pas
 la table passager(souligner N°passport : c'est la clé primaire ,nom passager, prenom passager)  
 pas # des clés étrangères 
 
+## Analyse Pour l'application ( UML ) : <a name="uml"></a>
 
-Pour l'application :
-* Un dictionnaire de données
+* Un dictionnaire de données 
+
+| N° | Code | Désignation |Type de données |
+|-----------|-----------|-----------|-----------|
+| 1 | nom_client | nom client| chaine de caratctére|
+|   2        |   prenom_client        |      prenom client      |    chaine de caratctére       |
+|    3       |    date_n       |     date de naissance      |    date        |
+|    4      |    mail       |     adresse mail     |      chaine de caratctére        |
+|    5      |    date_dep       |     date départ      |   date         |
+|    6       |    heure_dep       |     heure de départ      |   time         |
+|    7     |   date_arr        |     date d’arrivée       |      date      |
+|    8      |   heure_arr        |     heure d’arrivée       |    time        |
+|    9      |      num_reserv     |     n°réservation       |    entier        |
+|    10     |      nom_comp     |     nom compagnie      |       chaine de caratctére     |
+|    11       |      nom_pass     |     nom passager     |    chaine de caratctére        |
+|    12       |     prenom_pass      |     prenom passager       |     chaine de caratctére       |
+|    13      |       n_passport    |     n°passport       |  chaine de caratctére          |
+|    14       |      nom_aerop     |    nom aéroport     |      chaine de caratctére      |
+|    15      |      heure_arrive     |    heure d’arrivée escale    |     time       |
+|    16      |      heure_depart     |     heure de départ escale    |    time        |
+|    17      |     nom_ville      |    nom ville    |    chaine de caratctére        |
+
+
+
+
+
 * Des règles de gestion
+Chaque aéroport dessert une ou plusieurs (1,n) villes.
+Un client peut réserver un ou plusieurs (La cardinalité(1.n)) vols, pour des passagers différents.
+Une réservation concerne un seul vol et un seul passager.
+Un vol peut comporter des escales dans des aéroports.
+Des compagnies aériennes proposent différents vols.
+
+aéroport==> 1,n==> villes
+client==>0,n==> vol==>0,n==>passagers
+reservation==>1==>vol==>1==>passager
+vol==>0,n==>escale
+
+
+
+
 * Un diagramme de cas d'utilisation
 * Un diagramme de classe
 * Un diagramme de Séquence
