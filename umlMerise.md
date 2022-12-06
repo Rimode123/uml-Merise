@@ -171,11 +171,17 @@ client==>0,n==> vol==>0,n==>passagers
 reservation==>1==>vol==>1==>passager
 vol==>0,n==>escale
 
+* Un diagramme de cas d'utilisation (Use Case)
+     
+Composants d'un diagramme de cas d'utilisation
 
-
-
-* Un diagramme de cas d'utilisation
+    Les acteurs : utilisateurs qui interagissent avec un système (Client , passager,agence de voyage,)
+    Le système : séquence spécifique d'actions et d'interactions entre les acteurs et le système
+    Les objectifs :réserver en ligne des billets d’avion à les clients.
+(Voir Diagrame_use_case .PDF)
 * Un diagramme de classe
+(voir Diagrame_de_classe.PDF)
 * Un diagramme de Séquence
+ (voir Diagrame_sequence.PDF)
 
  
