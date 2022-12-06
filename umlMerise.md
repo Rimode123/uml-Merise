@@ -21,8 +21,8 @@
 7. [7.Un dictionnaire de données](#uml) 	
 8. [8.Des règles de gestion](uml)
 9. [9. Un diagramme de cas d'utilisation](#uml)
-10.[10.Un diagramme de classe](#uml)
-11.[11.Un diagramme de Séquence](#uml)
+10. [10.Un diagramme de classe](#uml)
+11. [11.Un diagramme de Séquence](#uml)
 
 
 ### Semaine du 05/12
@@ -159,6 +159,7 @@ pas # des clés étrangères
 
 
 * Des règles de gestion
+
 Chaque aéroport dessert une ou plusieurs (1,n) villes.
 Un client peut réserver un ou plusieurs (La cardinalité(1.n)) vols, pour des passagers différents.
 Une réservation concerne un seul vol et un seul passager.
