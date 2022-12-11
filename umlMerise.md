@@ -11,18 +11,18 @@
 
 
 ## Table des matières
+## Table des matières
 
 1. [1.La conception](#con)
 2. [2.Contexte du projet ](#pro)
-3. [3.Élaborer un MCD.](#merise) 
-4. [4.Élaborer un MLD.](#merise) 
-5. [5.Élaborer un MPD.](#merise) 	
-6. [6.Analyse Pour l'application UML.](#uml) 	
+3. [3.Les règles de gestion](uml)
+4. [4. Un diagramme de cas d'utilisation](#uml)
+5. [5.Un diagramme de Séquence](#uml)	
+6. [6.Un diagramme de classe](#uml)
 7. [7.Un dictionnaire de données](#uml) 	
-8. [8.Des règles de gestion](uml)
-9. [9. Un diagramme de cas d'utilisation](#uml)
-10. [10.Un diagramme de classe](#uml)
-11. [11.Un diagramme de Séquence](#uml)
+8. [8.Élaborer un MCD.](#merise) 
+9. [9.Élaborer un MLD  à partie d'un MCD.](#merise) 
+10. [10.Élaborer un MPD.](#merise) 
 
 
 ### Semaine du 05/12
@@ -51,6 +51,116 @@ La plateforme devra permettre que :
     Une escale a une heure d’arrivée et une heure de départ.
     Chaque aéroport dessert une ou plusieurs villes.
     Des compagnies aériennes proposent différents vols.
+
+## Analyse Pour l'application ( UML ) : <a name="uml"></a>
+
+
+
+
+* Les règles de gestion
+
+Chaque aéroport dessert une ou plusieurs (1,n) villes.
+Un client peut réserver un ou plusieurs (La cardinalité(1.n)) vols, pour des passagers différents.
+Une réservation concerne un seul vol et un seul passager.
+Un vol peut comporter des escales dans des aéroports.
+Des compagnies aériennes proposent différents vols.
+
+aéroport==> 1,n==> villes
+client==>0,n==> vol==>0,n==>passagers
+reservation==>1==>vol==>1==>passager
+vol==>0,n==>escale
+
+Client
+
+Le client consulte le site de l'agence de voyage.
+
+    Le client contiens un numero de passport ,un nom, un prénom, une adresse mail. peut etre un visiteur
+    Le client doit s'authentifier
+    Le client peut réserver plusieurs vols .
+    Le client peut réserver pour des passagers.
+    Le client paie sa réservation.
+    Le client reçoit une facture de confirmation par mail.
+    Le client peut annuler sa réservation.
+    Le client peut modifier sa réservation
+    Le client peut s'enregistrer en ligne 
+
+Agence de voyage
+
+L'agence de voyage consulte plusieur compagnies pour proposer des vols au client.
+
+   L'agence de voyage obtenir les infomations du client.
+    L'agence de voyage prendre les informations de vols auprès des  compagnies.
+   L'agence de voyage propose aux clients les différents vols disponibles.
+    L'agence de voyage récupère le choix du client et confirme la réservation auprès de la compagnie.
+    La compagnie établit une facture de réservation.
+    La réservation peut être composée d'un ou plusieurs vols (escales) et est composée des informations pour chaque  vols .
+    L'agence de voyage définit sa commission.
+
+Compagnie aérienne
+
+La compagnie propose des différents vols.
+
+    La compagnie confirme la réservation.
+    La compagnie annule la réservation
+    La compagnie peut annuler le vol.
+    La compagnie ajoute les vols
+    La compagnie peut modifier le vol
+    La compagnie aérienne fournit les informations 
+    La copmagnie ouvre le vol avant l'enregistrement
+    La compagnie ferme le vol aprés l'enregistrement
+
+Vol
+
+Le vol est créé par la compagnie.
+
+    Un vol a un numéro de vol, un horaire et date de départ et un horaire et date d'arrivée.
+    Un vol peut comporter des escales dans des aéroports.
+    Un vol est composé de places, disponibles ou non.
+
+Ville
+
+    Une ville contient un ou plusieurs aéroport.
+
+
+* Un diagramme de cas d'utilisation (Use Case)
+     
+Composants d'un diagramme de cas d'utilisation
+
+    Les acteurs : utilisateurs qui interagissent avec un système (Client , passager,agence de voyage)
+    Le système : séquence spécifique d'actions et d'interactions entre les acteurs et le système (Compagnie)
+    Les objectifs :réserver en ligne des billets d’avion à les clients.
+(Voir Diagrame_use_case .PDF)
+* Un diagramme de Séquence
+ (voir Diagrame_sequence.PDF)
+
+* Un diagramme de classe
+(voir Diagrame_de_classe.PDF)
+
+
+* Un dictionnaire de données 
+
+| N° | Code | Désignation |Type de données |
+|-----------|-----------|-----------|-----------|
+| 1 | nom_client | nom client| chaine de caratctére|
+|   2        |   prenom_client        |      prenom client      |    chaine de caratctére       |
+|    3       |    date_n       |     date de naissance      |    date        |
+|    4      |    mail       |     adresse mail     |      chaine de caratctére        |
+|    5      |    date_dep       |     date départ      |   date         |
+|    6       |    heure_dep       |     heure de départ      |   time         |
+|    7     |   date_arr        |     date d’arrivée       |      date      |
+|    8      |   heure_arr        |     heure d’arrivée       |    time        |
+|    9      |      num_reserv     |     n°réservation       |    entier        |
+|    10     |      nom_comp     |     nom compagnie      |       chaine de caratctére     |
+|    11       |      nom_pass     |     nom passager     |    chaine de caratctére        |
+|    12       |     prenom_pass      |     prenom passager       |     chaine de caratctére       |
+|    13      |       n_passport    |     n°passport       |  chaine de caratctére          |
+|    14       |      nom_aerop     |    nom aéroport     |      chaine de caratctére      |
+|    15      |      heure_arrive     |    heure d’arrivée escale    |     time       |
+|    16      |      heure_depart     |     heure de départ escale    |    time        |
+|    17      |     nom_ville      |    nom ville    |    chaine de caratctére        |
+
+
+
     
 ## Partie Merise <a name="merise"></a>
 Pour la base de données :
@@ -130,58 +240,5 @@ la table passager(N°passport : c'est la clé primaire ,nom passager, prenom pas
 la table passager(souligner N°passport : c'est la clé primaire ,nom passager, prenom passager)  
 pas # des clés étrangères 
 
-## Analyse Pour l'application ( UML ) : <a name="uml"></a>
-
-* Un dictionnaire de données 
-
-| N° | Code | Désignation |Type de données |
-|-----------|-----------|-----------|-----------|
-| 1 | nom_client | nom client| chaine de caratctére|
-|   2        |   prenom_client        |      prenom client      |    chaine de caratctére       |
-|    3       |    date_n       |     date de naissance      |    date        |
-|    4      |    mail       |     adresse mail     |      chaine de caratctére        |
-|    5      |    date_dep       |     date départ      |   date         |
-|    6       |    heure_dep       |     heure de départ      |   time         |
-|    7     |   date_arr        |     date d’arrivée       |      date      |
-|    8      |   heure_arr        |     heure d’arrivée       |    time        |
-|    9      |      num_reserv     |     n°réservation       |    entier        |
-|    10     |      nom_comp     |     nom compagnie      |       chaine de caratctére     |
-|    11       |      nom_pass     |     nom passager     |    chaine de caratctére        |
-|    12       |     prenom_pass      |     prenom passager       |     chaine de caratctére       |
-|    13      |       n_passport    |     n°passport       |  chaine de caratctére          |
-|    14       |      nom_aerop     |    nom aéroport     |      chaine de caratctére      |
-|    15      |      heure_arrive     |    heure d’arrivée escale    |     time       |
-|    16      |      heure_depart     |     heure de départ escale    |    time        |
-|    17      |     nom_ville      |    nom ville    |    chaine de caratctére        |
-
-
-
-
-
-* Des règles de gestion
-
-Chaque aéroport dessert une ou plusieurs (1,n) villes.
-Un client peut réserver un ou plusieurs (La cardinalité(1.n)) vols, pour des passagers différents.
-Une réservation concerne un seul vol et un seul passager.
-Un vol peut comporter des escales dans des aéroports.
-Des compagnies aériennes proposent différents vols.
-
-aéroport==> 1,n==> villes
-client==>0,n==> vol==>0,n==>passagers
-reservation==>1==>vol==>1==>passager
-vol==>0,n==>escale
-
-* Un diagramme de cas d'utilisation (Use Case)
-     
-Composants d'un diagramme de cas d'utilisation
-
-    Les acteurs : utilisateurs qui interagissent avec un système (Client , passager,agence de voyage,)
-    Le système : séquence spécifique d'actions et d'interactions entre les acteurs et le système
-    Les objectifs :réserver en ligne des billets d’avion à les clients.
-(Voir Diagrame_use_case .PDF)
-* Un diagramme de classe
-(voir Diagrame_de_classe.PDF)
-* Un diagramme de Séquence
- (voir Diagrame_sequence.PDF)
 
  
